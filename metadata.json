@@ -1,0 +1,6 @@
+{
+  "name": "Planificador de Control Financiero",
+  "description": "Landing page de alta conversión para el Planificador de Control Financiero, deudas y ahorros.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { HOTMART_CHECKOUT_URL } from "../constants";
 import { motion, AnimatePresence } from "motion/react";
 import { X, AlertTriangle, Check, ShieldCheck, HeartCrack, Sparkles, Smile } from "lucide-react";
+import { trackInitiateCheckout } from "../lib/pixel";
 
 export default function ExitIntentModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -118,6 +119,7 @@ export default function ExitIntentModal() {
                     href={HOTMART_CHECKOUT_URL}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={trackInitiateCheckout}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     className="w-full text-center bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3.5 px-6 rounded-xl shadow-lg cursor-pointer flex items-center justify-center gap-2 border-b-2 border-emerald-800"

@@ -2,6 +2,7 @@ import React from "react";
 import { HOTMART_CHECKOUT_URL } from "../constants";
 import { ShieldCheck, HelpCircle, Mail, Globe, ArrowUp } from "lucide-react";
 import { motion } from "motion/react";
+import { trackInitiateCheckout } from "../lib/pixel";
 
 interface FooterCTAProps {
   formattedTime: string;
@@ -50,6 +51,7 @@ export default function FooterCTA({ formattedTime, spotsLeft }: FooterCTAProps) 
             href={HOTMART_CHECKOUT_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={trackInitiateCheckout}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-lg sm:text-xl py-4.5 px-10 rounded-2xl shadow-xl shadow-emerald-500/10 flex items-center justify-center gap-2.5 cursor-pointer border-b-4 border-emerald-700 active:translate-y-[2px]"

@@ -1,6 +1,7 @@
 import { HOTMART_CHECKOUT_URL } from "../constants";
 import { Sparkles, TrendingUp, ShieldCheck, Check } from "lucide-react";
 import { motion } from "motion/react";
+import { trackInitiateCheckout } from "../lib/pixel";
 
 export default function HeroSection() {
   return (
@@ -66,6 +67,7 @@ export default function HeroSection() {
                 href={HOTMART_CHECKOUT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={trackInitiateCheckout}
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 className="w-full sm:w-auto text-center bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-extrabold text-lg md:text-xl py-4.5 px-8 rounded-full shadow-xl shadow-emerald-600/20 cursor-pointer transition-all active:scale-95 duration-150 animate-pulse hover:animate-none"

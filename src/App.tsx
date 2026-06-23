@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { useEffect } from "react";
 import { useUrgencyTimer } from "./useUrgencyTimer";
 import UrgencyHeader from "./components/UrgencyHeader";
 import HeroSection from "./components/HeroSection";
@@ -17,9 +18,16 @@ import WarrantySection from "./components/WarrantySection";
 import FooterCTA from "./components/FooterCTA";
 import ExitIntentModal from "./components/ExitIntentModal";
 import LiveSalesNotifier from "./components/LiveSalesNotifier";
+import { trackViewContent } from "./lib/pixel";
 
 export default function App() {
   const { formattedTime, spotsLeft } = useUrgencyTimer();
+
+  useEffect(() => {
+    // Only track ViewContent after page load has stabilized and fbq is loaded.
+    // We run it as soon as the App mounts.
+    trackViewContent();
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#edf7f2] via-[#f7fcf9] to-[#edf7f2] text-slate-800 font-sans antialiased selection:bg-emerald-100 selection:text-emerald-900">

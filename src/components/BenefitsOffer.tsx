@@ -1,6 +1,7 @@
 import { BONUSES, HOTMART_CHECKOUT_URL } from "../constants";
 import { Gift, ArrowRight, CheckCircle2, BadgePercent, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
+import { trackInitiateCheckout } from "../lib/pixel";
 
 export default function BenefitsOffer() {
   const getBonusIcon = (id: string) => {
@@ -97,6 +98,7 @@ export default function BenefitsOffer() {
             href={HOTMART_CHECKOUT_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={trackInitiateCheckout}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base py-3 px-6 rounded-2xl shadow-md cursor-pointer flex items-center justify-center gap-2 border-b-2 border-emerald-800"

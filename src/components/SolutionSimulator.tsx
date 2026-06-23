@@ -2,6 +2,7 @@ import { HOTMART_CHECKOUT_URL } from "../constants";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Maximize2, X, CheckCircle2, TrendingUp, Sparkles, ShieldAlert, Award } from "lucide-react";
+import { trackInitiateCheckout } from "../lib/pixel";
 
 export default function SolutionSimulator() {
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
@@ -194,6 +195,7 @@ export default function SolutionSimulator() {
               href={HOTMART_CHECKOUT_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={trackInitiateCheckout}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
               className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-lg md:text-xl py-4 px-10 rounded-2xl shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-2.5 cursor-pointer leading-tight mb-4 border-b-4 border-emerald-700 active:translate-y-[2px] active:border-b-2"

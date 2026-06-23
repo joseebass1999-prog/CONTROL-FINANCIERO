@@ -31,19 +31,29 @@ export function trackPageView(): void {
  * Track ViewContent event
  */
 export function trackViewContent(): void {
-  const fbq = getFBQ();
-  if (fbq) {
-    fbq("track", "ViewContent");
-  } else {
-    // Retry once in case initialization is happening asynchronously
-    setTimeout(() => {
-      const retryFbq = getFBQ();
-      if (retryFbq) {
-        retryFbq("track", "ViewContent");
-      } else {
-        console.warn("Meta Pixel (fbq) viewContent: fbq is not initialized after retry.");
-      }
-    }, 1000);
+  const executeTrack = () => {
+    const fbq = getFBQ();
+    if (fbq) {
+      fbq("track", "ViewContent");
+    } else {
+      // Retry once in case initialization is happening asynchronously
+      setTimeout(() => {
+        const retryFbq = getFBQ();
+        if (retryFbq) {
+          retryFbq("track", "ViewContent");
+        } else {
+          console.warn("Meta Pixel (fbq) viewContent: fbq is not initialized after retry.");
+        }
+      }, 1000);
+    }
+  };
+
+  if (typeof window !== "undefined") {
+    if (document.readyState === "complete") {
+      executeTrack();
+    } else {
+      window.addEventListener("load", executeTrack, { once: true });
+    }
   }
 }
 

@@ -78,7 +78,7 @@ export default function FooterCTA({ formattedTime, spotsLeft }: FooterCTAProps) 
             </p>
             <div className="flex items-center gap-2 text-xs font-semibold text-slate-400">
               <Mail className="w-4 h-4 text-emerald-500" />
-              <span>Soporte Técnico Especializado: <a href="mailto:joseebass.1999@gmail.com" className="underline hover:text-white">joseebass.1999@gmail.com</a></span>
+              <span>Soporte Técnico Especializado: <a href="mailto:masterkitfinanciero@gmail.com" className="underline hover:text-white">Masterkitfinanciero@Gmail.com</a></span>
             </div>
           </div>
 
